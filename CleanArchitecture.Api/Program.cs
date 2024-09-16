@@ -1,5 +1,6 @@
 using CleanArchitecture.Entity.Context;
 using CleanArchitecture.Repository.Interfaces;
+using CleanArchitecture.Repository.Mappings;
 using CleanArchitecture.Repository.Repositories;
 using CleanArchitecture.Service.Interfaces;
 using CleanArchitecture.Service.Services;
@@ -20,6 +21,8 @@ builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 builder.Services.AddScoped<IUserRoleService, UserRoleService>();
+
+builder.Services.AddAutoMapper(assemblies => assemblies.AddProfile<AutoMapperProfile>());
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
